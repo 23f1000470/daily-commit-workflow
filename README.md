@@ -1,1 +1,2 @@
 [![Daily Commit](https://github.com/23f1000470/daily-commit-workflow/actions/workflows/daily-commit.yml/badge.svg)](https://github.com/23f1000470/daily-commit-workflow/actions/workflows/daily-commit.yml)
+email : 23f1000470@ds.study.iitm.ac.in
