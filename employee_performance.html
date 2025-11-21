@@ -1,3 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Employee Performance – Department Distribution (With Python Code)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    h1 { color: #1f4e79; }
+    .summary { background:#f3f6fb; padding:15px; border-radius:8px; margin-bottom:20px; }
+    .chart { text-align:center; margin: 20px 0; }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      font-size: 14px;
+      overflow-x: auto;
+    }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align:left; }
+    th { background-color:#f2f2f2; }
+  </style>
+</head>
+
+<body>
+
+  <h1>Employee Performance — Department Distribution</h1>
+
+  <div class="summary">
+    <p><strong>Verification Email:</strong> 23f1000470@ds.study.iitm.ac.in</p>
+    <p><strong>Frequency count for 'IT' department:</strong> 14 employees</p>
+  </div>
+
+  <h2>Python Code Used</h2>
+  <pre><code>
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+np.random.seed(42)
+
+departments = ['R&D','Marketing','Sales','Finance','HR','IT','Operations','Legal']
+regions = ['North America','Asia Pacific','Europe','Latin America','Africa','Middle East']
+
+n = 100
+employee_ids = [f"EMP{str(i+1).zfill(3)}" for i in range(n)]
+dept_choices = np.random.choice(departments, size=n)
+region_choices = np.random.choice(regions, size=n)
+performance_scores = np.round(np.random.normal(80, 8, n), 2)
+years_experience = np.random.randint(1, 31, n)
+satisfaction_rating = np.round(np.random.uniform(3.5, 5.0, n), 1)
+
+df = pd.DataFrame({
+    'employee_id': employee_ids,
+    'department': dept_choices,
+    'region': region_choices,
+    'performance_score': performance_scores,
+    'years_experience': years_experience,
+    'satisfaction_rating': satisfaction_rating
+})
+
+# Frequency for IT
+it_count = (df['department'] == 'IT').sum()
+print("Frequency count for IT department:", it_count)
+
+# Histogram
+df['department'].value_counts().plot(kind='bar')
+plt.title("Department Distribution")
+plt.xlabel("Department")
+plt.ylabel("Number of Employees")
+plt.show()
+  </code></pre>
+
+  <h2>Histogram</h2>
+  <p>This image should be embedded manually after you generate it in Python:</p>
+  <p><strong>→ Insert your histogram .png here in your final submission</strong></p>
+  <p>(GitHub will display it automatically once you push both image + HTML.)</p>
+
+</body>
+</html>
 
 <!doctype html>
 <html lang="en">
